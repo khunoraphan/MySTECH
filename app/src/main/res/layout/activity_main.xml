@@ -6,6 +6,7 @@
     tools:context="stech.khamtad.oraphan.mystech.MainActivity">
 
    <LinearLayout
+       android:layout_marginTop="@dimen/margin"
        android:orientation="vertical"
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
@@ -25,6 +26,51 @@
            android:text="@string/name_sriwattana"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"/>
+
+
+       <LinearLayout
+           android:layout_marginTop="@dimen/margin2"
+           android:layout_marginRight="@dimen/margin"
+           android:layout_marginLeft="@dimen/margin"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <ImageView
+               android:src="@mipmap/ic_user"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <EditText
+               android:hint="@string/user"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+
+
+
+
+       </LinearLayout> <LinearLayout
+
+           android:layout_marginRight="@dimen/margin"
+           android:layout_marginLeft="@dimen/margin"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <ImageView
+               android:src="@mipmap/ic_password"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <EditText
+               android:hint="@string/password"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+
+
+
+
+       </LinearLayout>
 
 
 
