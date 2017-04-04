@@ -88,14 +88,13 @@
 
        <TextView
            android:id="@+id/txtRegister"
-           android:textStyle="bold"
-           android:textColor="#f20808"
-           android:textSize="@dimen/h2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
            android:layout_gravity="center_horizontal"
            android:text="@string/new_register"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content" />
-
+           android:textColor="#f20808"
+           android:textSize="@dimen/h2"
+           android:textStyle="bold" />
 
 
    </LinearLayout>
