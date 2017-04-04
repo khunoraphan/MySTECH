@@ -5,8 +5,18 @@
     android:layout_height="match_parent"
     tools:context="stech.khamtad.oraphan.mystech.MainActivity">
 
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:src="@drawable/sriwattana"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
    <LinearLayout
-       android:layout_marginTop="@dimen/margin"
+       android:layout_centerInParent="true"
+       android:padding="@dimen/margin2"
+       android:layout_margin="@dimen/margin"
+       android:background="#86ffffff"
        android:orientation="vertical"
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
@@ -42,6 +52,7 @@
                android:layout_height="wrap_content" />
 
            <EditText
+               android:id="@+id/edtUser"
                android:hint="@string/user"
                android:layout_width="match_parent"
                android:layout_height="wrap_content" />
@@ -49,8 +60,10 @@
 
 
 
-       </LinearLayout> <LinearLayout
+       </LinearLayout>
 
+
+       <LinearLayout
            android:layout_marginRight="@dimen/margin"
            android:layout_marginLeft="@dimen/margin"
            android:orientation="horizontal"
@@ -63,6 +76,7 @@
                android:layout_height="wrap_content" />
 
            <EditText
+               android:id="@+id/edtPassword"
                android:hint="@string/password"
                android:layout_width="match_parent"
                android:layout_height="wrap_content" />
@@ -72,9 +86,26 @@
 
        </LinearLayout>
 
+       <TextView
+           android:id="@+id/txtRegister"
+           android:textStyle="bold"
+           android:textColor="#f20808"
+           android:textSize="@dimen/h2"
+           android:layout_gravity="center_horizontal"
+           android:text="@string/new_register"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+
 
 
    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:text="@string/Login"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 </RelativeLayout>
