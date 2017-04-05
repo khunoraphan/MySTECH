@@ -55,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             //Check Space
 
+
             if (nameString.equals("") || surnameString.equals("") ||
                     addressString.equals("") || userString.equals("")||
                     passwordString.equals("")) {
