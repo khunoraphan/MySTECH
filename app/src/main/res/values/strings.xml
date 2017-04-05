@@ -5,4 +5,9 @@
     <string name="password">Password :</string>
     <string name="new_register">New Register</string>
     <string name="Login">Login</string>
+    <string name="name">Name</string>
+    <string name="name1">Name :</string>
+    <string name="surname">Surname :</string>
+    <string name="address">Address :</string>
+    <string name="save">save</string>
 </resources>

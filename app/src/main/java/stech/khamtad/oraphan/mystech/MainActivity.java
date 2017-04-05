@@ -1,5 +1,7 @@
 package stech.khamtad.oraphan.mystech;
 
+import android.content.ClipData;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -53,6 +55,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //For TextView
         if (v == textView) {
             Log.d(tag, "You Click TextView");
+
+
+            //Create Intent
+            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+            startActivity(intent);
+
         }
         //For Button
         if (v == button) {
