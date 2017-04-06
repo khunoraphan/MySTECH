@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     //Explicit
@@ -67,6 +68,20 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             } else {
 
                 //No Space
+
+                try {
+
+                    PostUser postUser = new PostUser(RegisterActivity.this);
+                    postUser.execute(nameString,surnameString,addressString,userString,passwordString);
+                    if (Boolean.parseBoolean(postUser.get())) {
+                        finish();
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "Cannot Save Data", Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
             }
 
