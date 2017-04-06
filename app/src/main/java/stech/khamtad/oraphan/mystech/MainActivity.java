@@ -10,11 +10,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     //Explicit
     private EditText userEditText, passwordEditText;
     private TextView textView;
     private Button button;
+    private String userString, passwordString, truePasswordString;
+    private boolean aBoolean = true;
 
 
     @Override
@@ -25,9 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Initial View คือ การผูกตัวแปร กับ View ที่อยู่ ที่ Activity
         initialView();
 
-                //Create Controller
+        //Create Controller
         controller();
-
 
 
     }   //Main Method
@@ -40,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initialView() {
         userEditText = (EditText) findViewById(R.id.edtUser);
         passwordEditText = (EditText) findViewById(R.id.edtPassword);
-        textView= (TextView) findViewById(R.id.txtRegister);
+        textView = (TextView) findViewById(R.id.txtRegister);
         button = (Button) findViewById(R.id.btnLogin);
 
 
@@ -65,10 +69,77 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //For Button
         if (v == button) {
             Log.d(tag, "You Click Button");
-        }
-        }
+
+            //Get Value From Edit Text
+
+            userString = userEditText.getText().toString().trim();
+            passwordString = passwordEditText.getText().toString().trim();
+            Log.d("TestV2", "User =" + userString);
+            Log.d("TestV2", "Password =" + passwordString);
+
+            //Check Space
+
+            if (userString.equals("") || passwordString.equals("")) {
+
+                MyAlert myAlert = new MyAlert(MainActivity.this);
+                myAlert.myDialog("Have Space", "Please Fill All");
 
 
-     //onClick
+            } else {
+                //No Space
+                Log.d("TestV2", "No Space");
+                CheckUserAnPass();
+
+            }
+        }
+    }
+
+    private void CheckUserAnPass() {
+        try {
+
+
+            GetUser getUser = new GetUser(MainActivity.this);
+            getUser.execute();
+
+            String strJSON = getUser.get();
+            Log.d("TestV2", "JSON ==>" + strJSON);
+
+            //Check User
+
+            JSONArray jsonArray = new JSONArray(strJSON);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                if (userString.equals(jsonObject.getString("User"))) {
+                    aBoolean = false;
+                    truePasswordString = jsonObject.getString("Password");
+
+
+                }
+
+
+            }//for
+
+            if (aBoolean) {
+                MyAlert myAlert = new MyAlert(MainActivity.this);
+                myAlert.myDialog("User False", "No This user on DataBase");
+            } else if (!(passwordString.equals(truePasswordString))) {
+                MyAlert myAlert = new MyAlert(MainActivity.this);
+                myAlert.myDialog("Password False", "Please Try Again");
+            } else {
+                Intent intent = new Intent(MainActivity.this, ServiceActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
+
+        } catch (Exception e) {
+            Log.d("TestV2", "e check ==>" + e.toString());
+
+        }
+
+    }
+
+
+    //onClick
 
 } //Main Class นี่คือ คลาสหลัก
